@@ -51,14 +51,14 @@ class Wireframe:
         self.edges += edgeList
 
     def outputEdges(self):
-        print "\n --- Edges --- "
+        print("\n --- Edges --- ")
         for i, (node1, node2) in enumerate(self.edges):
-            print "   %d: %d -> %d" % (i, node1, node2)
+            print("   %d: %d -> %d" % (i, node1, node2))
 
     def outputNodes(self):
-        print "\n --- Nodes --- "
+        print("\n --- Nodes --- ")
         for i, (x, y, z, _) in enumerate(self.nodes):
-            print "   %d: (%d, %d, %d)" % (i, x, y, z)
+            print("   %d: (%d, %d, %d)" % (i, x, y, z))
 
     def transform(self, matrix):
         """ Apply a transformation defined by a given matrix. """
@@ -222,7 +222,7 @@ class ProjectionViewer:
     def translateAll(self, direction, increment):
         """ Translate all wireframes along a given axis by d units. """
 
-        for wireframe in self.wireframes.itervalues():
+        for wireframe in self.wireframes.values():
             if direction == 'FORWARD':
                 vector = wireframe.unitVectorFront()*increment
             if direction == 'BACKWARD':
@@ -241,7 +241,7 @@ class ProjectionViewer:
     def rotateAll(self, spin, theta):
         """ Rotate all wireframe about their center, along a given axis by a given angle. """
 
-        for wireframe in self.wireframes.itervalues():
+        for wireframe in self.wireframes.values():
             if spin == 'YAW':
                 point, axis = wireframe.unitVectorYawCenter()
             if spin == 'PITCH':
